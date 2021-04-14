@@ -14,7 +14,7 @@ namespace targil3
         private int high_range;
 
         //בנאי מגדיר טווח ערכים שווה לטווח ערכים 
-        private MyVar(int min, int max)
+        public MyVar(int min, int max)
         {
             /*
                 number1=new newCounter();

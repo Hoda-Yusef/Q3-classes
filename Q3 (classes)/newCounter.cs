@@ -11,11 +11,33 @@ namespace targil3
         private int counter = 0;
         private int min_range;
         private int max_range;
+
+
         // constructor
-        private newCounter()
+        public newCounter(int min,int max)
         {
-            min_range = 0;
-            max_range = 15;
+            if (min < max )
+            {
+                min_range = min;
+                max_range = max;
+            }
+            else
+            {
+                // אם שני ערכים שהתקבלו שווים
+                if (min == max)
+                {
+                    min_range = min;
+                    max_range = min + 10;
+                }
+                // אם הראשון גדול מערך השני 
+                else
+                {
+                    
+                    min_range = max;
+                    
+                    max_range = min;
+                }
+            }
         }
 
         // שיטה מחזירה ערך של המונה

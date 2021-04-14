@@ -10,11 +10,9 @@ namespace targil3
     {
         static void Main(string[] args)
         {
-            MyVar first;
-            first = new MyVar(0, 5);
-            first.set_counter1(5);
-            first.set_counter2(10);
-            //Console.Write(sum_counters(first.get_counter1(),first.get_counter2()));
+            newCounter first = new newCounter(5, 10); 
+            MyVar var1 = new MyVar(0, 5);
+            
 
 
 
