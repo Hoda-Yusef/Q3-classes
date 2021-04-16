@@ -46,6 +46,15 @@ namespace targil3
             return this.counter;
         }
 
+        public void set_counter(int num)
+        {
+            if(num>=min_range && num<=max_range)
+            {
+                this.counter = num;
+            }
+            
+        }
+
         // שיטה מחזירה ערך גבול תחתון
         public int get_minRange()
         {

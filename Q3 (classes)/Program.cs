@@ -12,8 +12,9 @@ namespace targil3
         {
             newCounter first = new newCounter(5, 10); 
             MyVar var1 = new MyVar(0, 5);
-            
 
+            Console.WriteLine("Set a new counter");
+            first.set_counter(6);
 
 
         }
