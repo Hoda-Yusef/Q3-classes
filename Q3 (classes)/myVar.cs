@@ -16,31 +16,26 @@ namespace targil3
         //בנאי מגדיר טווח ערכים שווה לטווח ערכים 
         public MyVar(int min, int max)
         {
-            /*
-                number1=new newCounter();
-                number2=new newCounter();
-             */
+           
             // במקרה אופטימלי
-            if (min < max && min >= number1.get_minRange())
+            if (min < max )
             {
-                low_range = min;
-                high_range = max;
+                number1 = new newCounter(min,max);
+                number2 = new newCounter(min,max);
             }
             else
             {
                 // אם שני ערכים שנקלטו שווים
                 if (min == max)
                 {
-                    low_range = min;
-                    high_range = min + 10;
+                    number1 = new newCounter(min,max+10);
+                    number2 = new newCounter(min,max+10);
                 }
                 // אם ראשון שנקלט קטן מהשני שנקלט
                 else
                 {
-                    // גבול MIN
-                    low_range = number1.get_minRange();
-                    // גבול MAX
-                    high_range = number1.get_maxRange();
+                    number1 = new newCounter(max,min);
+                    number2 = new newCounter(max,min);
                 }
             }
         }
@@ -57,41 +52,53 @@ namespace targil3
         }
 
         //  שיטה מקבלת מספר שלם , בודקת אם נמצא בטווח ערכים שהוגדר לאובייקטים מסיג
-        public void set_counter1(int value)
+        public Boolean set_counter1(int value)
         {
             // בודקים אם ערך שנקלט נמצא בטווח הערכים שמוגדר לאובייקט number1
             if (value >= number1.get_minRange() && value <= number1.get_maxRange())
-                number1.counter_input(value);
+            {
+                number1.set_counter(value);
+                return true;
+            }
             else
+            {
                 // נציב ערך deafult
-                number1.counter_input(0);
+                number1.set_counter(0);
+                return false;
+            }
         }
 
         //  שיטה מקבלת מספר שלם , בודקת אם נמצא בטווח ערכים שהוגדר לאובייקטים מסיג newCounter
-        public void set_counter2(int value)
+        public Boolean set_counter2(int value)
         {
             // בודקים אם ערך שנקלט נמצא בטווח הערכים שמוגדר לאובייקט number1
             if (value >= number2.get_minRange() && value <= number2.get_maxRange())
-                number2.counter_input(value);
+            {
+                number2.set_counter(value);
+                return true;
+            }
             else
+            {
                 // נציב ערך deafult
-                number2.counter_input(0);
+                number2.set_counter(0);
+                return false;
+            }
         }
 
         // שיטה מחזירה סכום מונים בשני אובייקטים מסוג newCounter
-        public int sum_counters(newCounter one, newCounter other)
+        public int sum_counters()
         {
             int sum = 0;
-            sum = one.get_counter() + other.get_counter();
+            sum = number1.get_counter() + number2.get_counter();
             return sum;
         }
 
         // שיטה מחזירה מקסימום 
-        public int maxOf(newCounter one, newCounter other)
+        public int maxOf()
         {
             int tmp1, tmp2;
-            tmp1 = one.get_counter();
-            tmp2 = other.get_counter();
+            tmp1 = number1.get_counter();
+            tmp2 = number2.get_counter();
             if (tmp1 > tmp2)
                 return tmp1;
             else

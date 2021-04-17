@@ -46,13 +46,19 @@ namespace targil3
             return this.counter;
         }
 
-        public void set_counter(int num)
+        // שיטה מאפשרת שינוי ערך המונה
+        public Boolean set_counter(int number)
         {
-            if(num>=min_range && num<=max_range)
+            if (number >= this.min_range && number <= this.max_range)
             {
-                this.counter = num;
+                // מספר תקין
+                this.counter = number;
+                return true;
             }
-            
+            else
+                // מספר שנקלט לא נמצא בטווח הערכים שהוגדר
+                return false;
+
         }
 
         // שיטה מחזירה ערך גבול תחתון
@@ -67,17 +73,7 @@ namespace targil3
             return this.max_range;
         }
 
-        // שיטה מאפשרת שינוי ערך המונה
-        public int counter_input(int number)
-        {
-            if (number >= this.min_range && number <= this.max_range)
-                // מספר תקין
-                return number;
-            else
-                // מספר שנקלט לא נמצא בטווח הערכים שהוגדר
-                return 0;
-        }
-
+     
         // שיטה בודקת אם ערך המונה החדש נמצא בטווח הערכים המוגדר לאובייקט
         private int check_input(int count)
         {
@@ -88,7 +84,7 @@ namespace targil3
         }
 
         // שיטה מקדמת counter  ב1
-        public int inc_counter()
+        public Boolean inc_counter()
         {
             int tmp = this.counter;
             tmp++;
@@ -96,16 +92,16 @@ namespace targil3
             if (check_input(tmp) == 1)
             {
                 this.counter++;
-                return this.counter;
+                return true;
             }
             else
-                // מחזיר ערך נוכחי של המונה
-                return this.counter;
+                
+                return false;
         }
 
 
         // שיטה מקטינה counter  ב1
-        public int dec_counter()
+        public Boolean dec_counter()
         {
             int tmp = this.counter;
             tmp--;
@@ -114,11 +110,11 @@ namespace targil3
             {
                 // אם כן אז מקטינים המונה ב1
                 this.counter--;
-                return this.counter;
+                return true;
             }
             // אחרת מחזירים הערך הנוכחי של המונה בלי שינוי
             else
-                return this.counter;
+                return false;
         }
 
 
